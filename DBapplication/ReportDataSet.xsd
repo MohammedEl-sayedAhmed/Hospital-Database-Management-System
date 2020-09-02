@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ReportDataSet" targetNamespace="http://tempuri.org/ReportDataSet.xsd" xmlns:mstns="http://tempuri.org/ReportDataSet.xsd" xmlns="http://tempuri.org/ReportDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="ConnectionString1" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ConnectionString1 (Settings)" PropertyReference="ApplicationSettings.DBapplication.Properties.Settings.GlobalReference.Default.ConnectionString1" Provider="System.Data.OleDb" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DoctorTableAdapter" GeneratorDataComponentClassName="DoctorTableAdapter" Name="Doctor" UserDataComponentName="DoctorTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ConnectionString1 (Settings)" DbObjectName="Hospital.dbo.Doctor" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>Select Department_ID, Count(*) as Count, MAX(Salary) as MaximumSalary, Min(Salary) as MinimumSalary,AVG(Salary) as AverageSalary from Doctor group by Department_ID</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Department_ID" DataSetColumn="Department_ID" />
+              <Mapping SourceColumn="Count" DataSetColumn="Count" />
+              <Mapping SourceColumn="MaximumSalary" DataSetColumn="MaximumSalary" />
+              <Mapping SourceColumn="MinimumSalary" DataSetColumn="MinimumSalary" />
+              <Mapping SourceColumn="AverageSalary" DataSetColumn="AverageSalary" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ScanTableAdapter" GeneratorDataComponentClassName="ScanTableAdapter" Name="Scan" UserDataComponentName="ScanTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ConnectionString1 (Settings)" DbObjectName="Hospital.dbo.Scan" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>Select Name, Price,COUNT(*) from Ordered_Scans, Scan where SID = Scan_ID Group by Name,price</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Name" DataSetColumn="Name" />
+              <Mapping SourceColumn="Price" DataSetColumn="Price" />
+              <Mapping SourceColumn="Column1" DataSetColumn="Count" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="MedicationTableAdapter" GeneratorDataComponentClassName="MedicationTableAdapter" Name="Medication" UserDataComponentName="MedicationTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ConnectionString1 (Settings)" DbObjectName="Hospital.dbo.Medication" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>Select Name, Price,Exp_Date,COUNT(*) from Prescribed_Medications, Medication where MID = Medication_ID Group by Name,price,Exp_Date</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Name" DataSetColumn="Name" />
+              <Mapping SourceColumn="Price" DataSetColumn="Price" />
+              <Mapping SourceColumn="Exp_Date" DataSetColumn="Exp_Date" />
+              <Mapping SourceColumn="Column1" DataSetColumn="Count" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ReceptionistTableAdapter" GeneratorDataComponentClassName="ReceptionistTableAdapter" Name="Receptionist" UserDataComponentName="ReceptionistTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ConnectionString1 (Settings)" DbObjectName="Hospital.dbo.Receptionist" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select Gender, min(salary) as minSalary, max(salary) as maxSalary, avg(salary) as avgSalary, Count(*) from Receptionist Group By Gender</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Gender" DataSetColumn="Gender" />
+              <Mapping SourceColumn="minSalary" DataSetColumn="minSalary" />
+              <Mapping SourceColumn="maxSalary" DataSetColumn="maxSalary" />
+              <Mapping SourceColumn="avgSalary" DataSetColumn="avgSalary" />
+              <Mapping SourceColumn="Column1" DataSetColumn="Count" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Registration_BillsTableAdapter" GeneratorDataComponentClassName="Registration_BillsTableAdapter" Name="Registration_Bills" UserDataComponentName="Registration_BillsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ConnectionString1 (Settings)" DbObjectName="Hospital.dbo.Registration_Bills" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select [Registration ID],[Room Price], [Scans Price],[Medications Price],[Doctor Fees] from Registration_Bills </CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Registration ID" DataSetColumn="Registration ID" />
+              <Mapping SourceColumn="Room Price" DataSetColumn="Room Price" />
+              <Mapping SourceColumn="Scans Price" DataSetColumn="Scans Price" />
+              <Mapping SourceColumn="Medications Price" DataSetColumn="Medications Price" />
+              <Mapping SourceColumn="Doctor Fees" DataSetColumn="Doctor Fees" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ReportDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ReportDataSet" msprop:Generator_UserDSName="ReportDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Doctor" msprop:Generator_TableClassName="DoctorDataTable" msprop:Generator_TableVarName="tableDoctor" msprop:Generator_TablePropName="Doctor" msprop:Generator_RowDeletingName="DoctorRowDeleting" msprop:Generator_RowChangingName="DoctorRowChanging" msprop:Generator_RowEvHandlerName="DoctorRowChangeEventHandler" msprop:Generator_RowDeletedName="DoctorRowDeleted" msprop:Generator_UserTableName="Doctor" msprop:Generator_RowChangedName="DoctorRowChanged" msprop:Generator_RowEvArgName="DoctorRowChangeEvent" msprop:Generator_RowClassName="DoctorRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Department_ID" msprop:Generator_ColumnVarNameInTable="columnDepartment_ID" msprop:Generator_ColumnPropNameInRow="Department_ID" msprop:Generator_ColumnPropNameInTable="Department_IDColumn" msprop:Generator_UserColumnName="Department_ID" type="xs:int" minOccurs="0" />
+              <xs:element name="Count" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCount" msprop:Generator_ColumnPropNameInRow="Count" msprop:Generator_ColumnPropNameInTable="CountColumn" msprop:Generator_UserColumnName="Count" type="xs:int" minOccurs="0" />
+              <xs:element name="MaximumSalary" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnMaximumSalary" msprop:Generator_ColumnPropNameInRow="MaximumSalary" msprop:Generator_ColumnPropNameInTable="MaximumSalaryColumn" msprop:Generator_UserColumnName="MaximumSalary" type="xs:int" minOccurs="0" />
+              <xs:element name="MinimumSalary" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnMinimumSalary" msprop:Generator_ColumnPropNameInRow="MinimumSalary" msprop:Generator_ColumnPropNameInTable="MinimumSalaryColumn" msprop:Generator_UserColumnName="MinimumSalary" type="xs:int" minOccurs="0" />
+              <xs:element name="AverageSalary" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnAverageSalary" msprop:Generator_ColumnPropNameInRow="AverageSalary" msprop:Generator_ColumnPropNameInTable="AverageSalaryColumn" msprop:Generator_UserColumnName="AverageSalary" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Scan" msprop:Generator_TableClassName="ScanDataTable" msprop:Generator_TableVarName="tableScan" msprop:Generator_TablePropName="Scan" msprop:Generator_RowDeletingName="ScanRowDeleting" msprop:Generator_RowChangingName="ScanRowChanging" msprop:Generator_RowEvHandlerName="ScanRowChangeEventHandler" msprop:Generator_RowDeletedName="ScanRowDeleted" msprop:Generator_UserTableName="Scan" msprop:Generator_RowChangedName="ScanRowChanged" msprop:Generator_RowEvArgName="ScanRowChangeEvent" msprop:Generator_RowClassName="ScanRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Price" msprop:Generator_ColumnVarNameInTable="columnPrice" msprop:Generator_ColumnPropNameInRow="Price" msprop:Generator_ColumnPropNameInTable="PriceColumn" msprop:Generator_UserColumnName="Price" type="xs:double" />
+              <xs:element name="Count" msdata:ReadOnly="true" msdata:Caption="Column1" msprop:Generator_ColumnVarNameInTable="columnCount" msprop:Generator_ColumnPropNameInRow="Count" msprop:Generator_ColumnPropNameInTable="CountColumn" msprop:Generator_UserColumnName="Count" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Medication" msprop:Generator_TableClassName="MedicationDataTable" msprop:Generator_TableVarName="tableMedication" msprop:Generator_TablePropName="Medication" msprop:Generator_RowDeletingName="MedicationRowDeleting" msprop:Generator_RowChangingName="MedicationRowChanging" msprop:Generator_RowEvHandlerName="MedicationRowChangeEventHandler" msprop:Generator_RowDeletedName="MedicationRowDeleted" msprop:Generator_UserTableName="Medication" msprop:Generator_RowChangedName="MedicationRowChanged" msprop:Generator_RowEvArgName="MedicationRowChangeEvent" msprop:Generator_RowClassName="MedicationRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Price" msprop:Generator_ColumnVarNameInTable="columnPrice" msprop:Generator_ColumnPropNameInRow="Price" msprop:Generator_ColumnPropNameInTable="PriceColumn" msprop:Generator_UserColumnName="Price" type="xs:double" />
+              <xs:element name="Exp_Date" msprop:Generator_ColumnVarNameInTable="columnExp_Date" msprop:Generator_ColumnPropNameInRow="Exp_Date" msprop:Generator_ColumnPropNameInTable="Exp_DateColumn" msprop:Generator_UserColumnName="Exp_Date" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Count" msdata:ReadOnly="true" msdata:Caption="Column1" msprop:Generator_ColumnVarNameInTable="columnCount" msprop:Generator_ColumnPropNameInRow="Count" msprop:Generator_ColumnPropNameInTable="CountColumn" msprop:Generator_UserColumnName="Count" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Receptionist" msprop:Generator_TableClassName="ReceptionistDataTable" msprop:Generator_TableVarName="tableReceptionist" msprop:Generator_TablePropName="Receptionist" msprop:Generator_RowDeletingName="ReceptionistRowDeleting" msprop:Generator_RowChangingName="ReceptionistRowChanging" msprop:Generator_RowEvHandlerName="ReceptionistRowChangeEventHandler" msprop:Generator_RowDeletedName="ReceptionistRowDeleted" msprop:Generator_UserTableName="Receptionist" msprop:Generator_RowChangedName="ReceptionistRowChanged" msprop:Generator_RowEvArgName="ReceptionistRowChangeEvent" msprop:Generator_RowClassName="ReceptionistRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Gender" msprop:Generator_ColumnVarNameInTable="columnGender" msprop:Generator_ColumnPropNameInRow="Gender" msprop:Generator_ColumnPropNameInTable="GenderColumn" msprop:Generator_UserColumnName="Gender" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="minSalary" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnminSalary" msprop:Generator_ColumnPropNameInRow="minSalary" msprop:Generator_ColumnPropNameInTable="minSalaryColumn" msprop:Generator_UserColumnName="minSalary" type="xs:int" minOccurs="0" />
+              <xs:element name="maxSalary" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnmaxSalary" msprop:Generator_ColumnPropNameInRow="maxSalary" msprop:Generator_ColumnPropNameInTable="maxSalaryColumn" msprop:Generator_UserColumnName="maxSalary" type="xs:int" minOccurs="0" />
+              <xs:element name="avgSalary" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnavgSalary" msprop:Generator_ColumnPropNameInRow="avgSalary" msprop:Generator_ColumnPropNameInTable="avgSalaryColumn" msprop:Generator_UserColumnName="avgSalary" type="xs:int" minOccurs="0" />
+              <xs:element name="Count" msdata:ReadOnly="true" msdata:Caption="Column1" msprop:Generator_ColumnVarNameInTable="columnCount" msprop:Generator_ColumnPropNameInRow="Count" msprop:Generator_ColumnPropNameInTable="CountColumn" msprop:Generator_UserColumnName="Count" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Registration_Bills" msprop:Generator_TableClassName="Registration_BillsDataTable" msprop:Generator_TableVarName="tableRegistration_Bills" msprop:Generator_TablePropName="Registration_Bills" msprop:Generator_RowDeletingName="Registration_BillsRowDeleting" msprop:Generator_RowChangingName="Registration_BillsRowChanging" msprop:Generator_RowEvHandlerName="Registration_BillsRowChangeEventHandler" msprop:Generator_RowDeletedName="Registration_BillsRowDeleted" msprop:Generator_UserTableName="Registration_Bills" msprop:Generator_RowChangedName="Registration_BillsRowChanged" msprop:Generator_RowEvArgName="Registration_BillsRowChangeEvent" msprop:Generator_RowClassName="Registration_BillsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Registration_x0020_ID" msprop:Generator_ColumnVarNameInTable="columnRegistration_ID" msprop:Generator_ColumnPropNameInRow="Registration_ID" msprop:Generator_ColumnPropNameInTable="Registration_IDColumn" msprop:Generator_UserColumnName="Registration ID" type="xs:long" minOccurs="0" />
+              <xs:element name="Room_x0020_Price" msprop:Generator_ColumnVarNameInTable="columnRoom_Price" msprop:Generator_ColumnPropNameInRow="Room_Price" msprop:Generator_ColumnPropNameInTable="Room_PriceColumn" msprop:Generator_UserColumnName="Room Price" type="xs:double" minOccurs="0" />
+              <xs:element name="Scans_x0020_Price" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnScans_Price" msprop:Generator_ColumnPropNameInRow="Scans_Price" msprop:Generator_ColumnPropNameInTable="Scans_PriceColumn" msprop:Generator_UserColumnName="Scans Price" type="xs:double" minOccurs="0" />
+              <xs:element name="Medications_x0020_Price" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnMedications_Price" msprop:Generator_ColumnPropNameInRow="Medications_Price" msprop:Generator_ColumnPropNameInTable="Medications_PriceColumn" msprop:Generator_UserColumnName="Medications Price" type="xs:double" minOccurs="0" />
+              <xs:element name="Doctor_x0020_Fees" msprop:Generator_ColumnVarNameInTable="columnDoctor_Fees" msprop:Generator_ColumnPropNameInRow="Doctor_Fees" msprop:Generator_ColumnPropNameInTable="Doctor_FeesColumn" msprop:Generator_UserColumnName="Doctor Fees" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
