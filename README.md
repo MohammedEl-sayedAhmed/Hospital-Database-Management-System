@@ -1,0 +1,2 @@
+# Hospital-Database-Management-System
+Used SQL and C# to design a hospital database management system that helps to manage all the operations and workflow in the hospital, like patient registration, subscribing medications, ordering tools from suppliers, bill payment, updating different logs for patients, doctors and nurses, as well as several others. Managerial users can also generate statistical charts and reports.
